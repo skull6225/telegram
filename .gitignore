@@ -28,12 +28,6 @@ buildNumber.properties
 mvnw
 mvnw.cmd
 
-# Gradle files
-.gradle/
-build/
-*.jar
-*.war
-
 # OS generated files
 .DS_Store
 Thumbs.db
