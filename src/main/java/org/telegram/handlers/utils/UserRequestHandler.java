@@ -57,11 +57,7 @@ public abstract class UserRequestHandler {
 
   public boolean isReport(Update update, boolean isAdmin) {
     return update.hasMessage() && update.getMessage().hasText() && isAdmin && (
-            update.getMessage().getText().equals("Озерна") || update.getMessage().getText().equals("Прибузька"));
-  }
-
-  public boolean isTextMessage(Update update) {
-    return update.hasMessage() && update.getMessage().hasText();
+            update.getMessage().getText().equals("Озерна звіт") || update.getMessage().getText().equals("Прибузька звіт"));
   }
 
   public boolean isTextMessage(Update update, String text) {

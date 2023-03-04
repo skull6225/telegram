@@ -16,10 +16,10 @@ public class AdminService {
 
         KeyboardRow clearApplyButtons = new KeyboardRow();
         clearApplyButtons.add(KeyboardButton.builder()
-                .text("Озерна")
+                .text("Озерна звіт")
                 .build());
         clearApplyButtons.add(KeyboardButton.builder()
-                .text("Прибузька")
+                .text("Прибузька звіт")
                 .build());
 
         KeyboardRow row = new KeyboardRow(clearApplyButtons);

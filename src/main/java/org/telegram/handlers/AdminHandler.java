@@ -18,8 +18,6 @@ import java.util.Objects;
 @Component
 public class AdminHandler extends UserRequestHandler {
 
-    private static String command = "/start";
-
     private final TelegramService telegramService;
     private final ProductService productService;
     private final AdminService adminService;

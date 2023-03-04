@@ -37,7 +37,7 @@ public class AdminReportHandler extends UserRequestHandler {
     @Override
     public void handle(UserRequest request) {
         Message message = request.getUpdate().getMessage();
-        Place place = placeRepository.findByName(message.getText());
+        Place place = placeRepository.findByName(message.getText().replace(" звіт", ""));
         List<Sales> allByPublicationDateAndPlace = salesRepository.findAllByPublicationDateAndPlace(new Date(), place);
 
         telegramService.sendMessage(request.getChatId(), getMenuMessage(allByPublicationDateAndPlace, place));
