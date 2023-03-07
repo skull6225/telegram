@@ -59,13 +59,25 @@ public class ProductService {
     }
 
     public ReplyKeyboard getCategoriesButtons() {
+        List<KeyboardRow> productButtons = new ArrayList<>();
+
         List<KeyboardButton> buttons = new ArrayList<>();
 
-        getCategoryList().forEach(f -> buttons.add(new KeyboardButton(f.getName())));
+        List<Category> categoryList = getCategoryList();
 
-        KeyboardRow row = new KeyboardRow(buttons);
+        for (int i = 0; i < categoryList.size(); i++) {
+            buttons.add(new KeyboardButton(categoryList.get(i).getName()));
+            if (buttons.size() == 3 || i == categoryList.size() - 1) {
+                productButtons.add(new KeyboardRow(buttons));
+                buttons = new ArrayList<>();
+            }
+        }
 
-        return getReplyKeyboardMarkup(List.of(row));
+        if (categoryList.size() < 3) {
+            productButtons.add(new KeyboardRow(buttons));
+        }
+
+        return getReplyKeyboardMarkup(productButtons);
     }
 
     public ReplyKeyboard getProductButtons(Category category, Place place) {
